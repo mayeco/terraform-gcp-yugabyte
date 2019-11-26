@@ -39,7 +39,7 @@ resource "google_compute_instance" "yugabyte_node" {
             size = "${var.disk_size}"
         }
     }
-    metadata { 
+    metadata = { 
         sshKeys = "${var.ssh_user}:${file(var.ssh_public_key)}"
     }
 
