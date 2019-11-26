@@ -95,7 +95,7 @@ resource "google_compute_instance" "yugabyte_node" {
             "chmod +x /home/${var.ssh_user}/start_master.sh",
             "/home/${var.ssh_user}/install_software.sh '${var.yb_edition}' '${var.yb_version}' '${var.yb_download_url}'"
         ]
-        connection {
+        connection = {
             type = "ssh"
             user = "${var.ssh_user}"
             private_key = "${file(var.ssh_private_key)}"
